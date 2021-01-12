@@ -7,8 +7,8 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const app = express();
 
-app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, 'views'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -32,12 +32,6 @@ mongoose.connect('mongodb://localhost/user-auth',
 mongoose.set('useCreateIndex', true);
 
 app.use('/', require('./routes/routes'));
-
-/*app.use(function(req, res, next){
-    const err = new Error('Not Found');
-    err.status = 404;
-    next(err);
-});*/
 
 app.listen(port, () => {
     console.log(`Running on port: ${port}`);

@@ -1,6 +1,12 @@
 doctype html
 html
     head
-        title= title
+        title Main page
         body
-            h1= message
+            if (user)
+                p Welcome, #{user.username}!
+
+            else
+                h1 Not logged in, please register or login.
+                a(href="/register") Register
+                a(href="/login") Log in
