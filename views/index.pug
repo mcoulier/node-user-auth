@@ -1,10 +1,11 @@
 doctype html
 html
     head
-        title Main page
+        title #{title}
         body
+
             if (user)
-                p Welcome, #{user.username}!
+                p Welcome, #{user.username}
 
             else
                 h1 Not logged in, please register or login.
