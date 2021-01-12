@@ -1,0 +1,15 @@
+doctype html
+html
+    head
+        title layout
+
+        body
+            if (typeof(user) == "undefined")
+                li
+                a(href="/register") Register
+                li
+                a(href="/login") Log in
+
+            else
+                li
+                a(href="/logout") Log out
