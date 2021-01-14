@@ -1,12 +1,10 @@
 const express = require('express');
 const passport = require('passport');
 const User = require('../models/user');
-//Router should be required WITH ()!
 const router = express.Router();
 
 router.get('/', function (req, res) {
-    console.log(req.user);
-    res.render('index', { user: req.user, title: "blabla" });
+    res.render('index', {user: req.user});
 });
 
 router.get('/register', function (req, res) {
@@ -14,25 +12,21 @@ router.get('/register', function (req, res) {
 });
 
 router.post('/register', function (req, res, next) {
-    console.log('registering user');
     User.register(new User({username: req.body.username, email: req.body.email}), req.body.password, function (err) {
         if (err) {
             console.log('error while user register!', err);
             return next(err);
         }
         console.log('user registered!');
-        res.redirect('/');
+        res.redirect('/login');
     });
 });
 
 router.get('/login', function (req, res) {
-/*
-    console.log(req.user.username);
-*/
-    res.render('login', {user: req.user /*message: req.flash('error')*/});
+    res.render('login', {user: req.user});
 });
 
-router.post('/login', passport.authenticate('local', /*{failureRedirect: '/login', failureFlash: true }*/), function (req, res) {
+router.post('/login', passport.authenticate('local'), function (req, res) {
     console.log('user logged in!');
     res.redirect('/');
 });
