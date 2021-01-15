@@ -1,6 +1,11 @@
 extends layout
 
 block content
+    h2 Register
+
+    if (message != '')
+        .alert.alert-danger #{message}
+
     form(action="/register", method="post")
         div.form-group
             label Username:

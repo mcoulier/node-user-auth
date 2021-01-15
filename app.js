@@ -2,7 +2,9 @@ const express = require('express');
 const path = require('path');
 const port = process.env.PORT || 8080;
 const session = require('cookie-session');
+const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const flash = require('connect-flash');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
@@ -11,10 +13,12 @@ const app = express();
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(cookieParser('bigSecret'));
+app.use(flash());
 
 app.use(session({keys: ['guess it, will you?', 'let me try...']}));
 app.use(passport.initialize());

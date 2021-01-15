@@ -1,6 +1,11 @@
 extends layout
 
 block content
+    h2 Log in
+
+    if (message != '')
+        .alert.alert-danger #{message}
+
     form(action="/login", method="post")
         div.form-group
             label.form-check-label Username:
