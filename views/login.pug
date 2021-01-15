@@ -2,17 +2,17 @@ extends layout
 
 block content
     form(action="/login", method="post")
-        div
-            label Username:
-            input(type="text", name="username")
+        div.form-group
+            label.form-check-label Username:
+            input.form-control(type="text", name="username")
 
-        div
-            label Email:
-            input(type="email", name="email")
+        div.form-group
+            label.form-check-label Email:
+            input.form-control(type="email", name="email")
 
-        div
-            label Password:
-            input(type="password", name="password")
+        div.form-group
+            label.form-check-label Password:
+            input.form-control(type="password", name="password")
 
-        div
-            input(type="submit", value="Log In")
+        div.form-group
+            input.btn.btn-primary(type="submit", value="Log In")
