@@ -11,11 +11,12 @@ const app = express();
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
+app.use(express.static(path.join(__dirname, 'public')))
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(session({keys: ['guess it, will you?', 'let me try...']}));
-
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -38,5 +39,3 @@ app.use('/', require('./routes/routes'));
 app.listen(port, () => {
     console.log(`Running on port: ${port}`);
 });
-
-module.exports = app;

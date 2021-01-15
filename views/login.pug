@@ -1,21 +1,18 @@
-doctype html
-html
-    head
-        title Log in
+extends layout
 
-    body
-        form(action="/login", method="post")
-            div
-                label Username
-                input(type="text", name="username")
+block content
+    form(action="/login", method="post")
+        div
+            label Username:
+            input(type="text", name="username")
 
-            div
-                label Email
-                input(type="email", name="email")
+        div
+            label Email:
+            input(type="email", name="email")
 
-            div
-                label Password
-                input(type="password", name="password")
+        div
+            label Password:
+            input(type="password", name="password")
 
-            div
-                input(type="submit", value="Log In")
+        div
+            input(type="submit", value="Log In")

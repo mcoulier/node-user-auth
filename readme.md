@@ -6,7 +6,7 @@ A user authentication app that stores users in a local MongoDB server. Session i
 
 1. clone this repository
 2. Run `npm install`
-2. Run `npm start`
+3. Run `npm start`
 4. Go to [localhost:8080](localhost:8080) to register/login
 
 ### Dependencies

@@ -12,14 +12,15 @@ router.get('/register', function (req, res) {
 });
 
 router.post('/register', function (req, res, next) {
-    User.register(new User({username: req.body.username, email: req.body.email}), req.body.password, function (err) {
-        if (err) {
-            console.log('error while user register!', err);
-            return next(err);
-        }
-        console.log('user registered!');
-        res.redirect('/login');
-    });
+    User.register(new User({username: req.body.username, email: req.body.email}), req.body.password,
+        function (err) {
+            if (err) {
+                console.log('error while user register!', err);
+                return next(err);
+            }
+            console.log('user registered!');
+            res.redirect('/login');
+        });
 });
 
 router.get('/login', function (req, res) {
